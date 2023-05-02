@@ -1,0 +1,22 @@
+<table class="w-[80%] text-center">
+  <thead>
+    <tr class="border-b border-primary p-2 text-primary">
+      <th>Title</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% stories.forEach(story => { %>
+    <tr class="border-b border-primary text-secondary">
+      <td class="py-2"><a href="/stories/<%= story.id %>"> <%= story.title %></a></td>
+      <td><%= (story.createdAt).toString().substring(4,15) %></td>
+      <td><%= story.status %></td>
+      <td>
+        <a href="/stories/<%= story.id %>/edit"><i class="fas fa-edit"></i></a>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

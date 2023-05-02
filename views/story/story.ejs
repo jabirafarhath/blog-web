@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/header') %>
+  <body class="bg-red-300">
+    <div class="flex justify-between">
+      <div class="bg-gray-800 w-1/4 h-screen fixed">
+        <!-- Navigation links go here -->
+        <%- include('../partials/navbar') %>
+      </div>
+      <div class="p-6 w-3/4" style="position: relative; left: 25%;">
+        <div class="flex ">
+          <!-- card here -->
+          <div class="bg-bg p-6 shadow-accent shadow-md rounded-md w-[95%]">
+            <div class="border-b border-b-primary">
+              <h1 class="font-bold text-3xl mt-2 text-primary">
+                <%= story.title%>
+              </h1>
+              <div class="flex justify-between">
+                <p class="text-sm mb-4 text-secondary"><%= story.desc%></p>
+                <p class="text-sm mb-4 text-secondary">
+                  <%= (story.createdAt).toString().substring(4,15) %>
+                </p>
+              </div>
+              <% if (user.id===story.user.toString()) { %>
+              <div class="flex justify-between">
+                <div>
+                <p class="text-sm mb-1 text-secondary"><%= story.status %></p></div>
+                <div class="text-sm mb-1 text-secondary">
+                  <a href="/stories/<%= story.id %>/edit">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="/stories/<%= story.id %>/delete">
+                    <i class="fas fa-trash ml-1"></i>
+                  </a>
+                
+              </div>
+              </div>
+              <% } %>
+            </div>
+            <div class="mt-3 mb-2">
+              <p><%= story.body %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

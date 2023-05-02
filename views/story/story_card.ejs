@@ -1,0 +1,46 @@
+<div
+  class="bg-bg py-2 px-3 shadow-accent shadow-md rounded-sm w-[30%] m-3 text-center relative"
+>
+  <div class="">
+    <h1 class="font-bold text-2xl mt-2 mb-0 text-primary">
+      <%= story.title %>
+    </h1>
+    <div class="flex justify-around px-1 mb-4">
+      <div>
+        <a href="/author/<%= story.user.id %>"
+          ><p class="text-xs mt-0 text-primary hover:text-secondary">
+            <%= story.user.displayName %>
+          </p></a
+        >
+      </div>
+      <div>
+        <p class="text-xs mt-0 text-primary">
+          <%= (story.createdAt).toString().substring(4,15) %>
+        </p>
+      </div>
+    </div>
+    <a href="/profile/<%= story.user.id %>">
+    <div class="flex justify-center px-3">
+      <div class="flex rounded-full border border-red-300 hover:bg-red-200 bg-red-100 w-2/3">
+        <img
+          src="<%= story.user.image %>"
+          alt=""
+          srcset=""
+          class="rounded-full w-1/6"
+        />
+        <p class="text-sm px-1 mx-auto text-accent hover:text-secondary"><%= story.user.displayName %></p>
+      </div>
+    </div>
+  </a>
+    <!-- <p class="my-4 text-primary text-sm"><%= story.desc %></p> -->
+  </div>
+  <div class="mt-6 mb-4">
+    <a href="/stories/<%= story.id%>"
+      ><button
+        class="px-3 py-1 bg-accent text-primary rounded-md hover:bg-secondary hover:text-bg"
+      >
+        Read More
+      </button></a
+    >
+  </div>
+</div>

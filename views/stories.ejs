@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header') %>
+  <body class="bg-red-300">
+    <div class="flex justify-between">
+      <div class="bg-gray-800 w-1/4 h-screen fixed">
+        <!-- Navigation links go here -->
+        <%- include('partials/navbar') %>
+      </div>
+      <div class="p-6 w-3/4" style="position: relative; left: 25%;">
+        <!-- Main content goes here -->
+        <h1 class="text-3xl font-bold text-primary text-center">Stories</h1>
+
+        <% if (stories.length) { %>
+        <div class="flex flex-wrap mt-8">
+          <%stories.forEach(story => { %>
+            <%-include('story/story_card',{story:story})%> 
+          <%})%>
+        </div>
+
+        <% } else { %>
+        <div class="flex justify-center">
+          <div
+            class="text-center bg-bg p-6 shadow-accent shadow-md mt-36 rounded-sm"
+          >
+            <div class="border-b border-b-primary">
+              <h1 class="font-bold text-3xl my-2 text-primary">
+                No Stories to show
+              </h1>
+              <p class="text-xs my-4 text-secondary">
+                You have no story entries!
+              </p>
+            </div>
+            <div class="mt-3 mb-2">
+              <a href="/stories/compose"
+                ><button
+                  class="px-3 py-2 bg-accent text-primary rounded-md hover:bg-secondary hover:text-bg"
+                >
+                  Share your Story
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

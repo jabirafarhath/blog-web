@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/header') %>
+  <body class="bg-red-300">
+    <div class="flex justify-center ">
+      <!-- card here -->
+      <div class="text-center bg-bg p-6 shadow-accent shadow-md mt-48 rounded-sm">
+        <div class="border-b border-b-primary">
+          <h1 class="font-bold text-3xl my-2 text-primary"> Uh Oh☹️!</h1>
+          <p class=" my-4 text-secondary">Couldn't create your story</p>
+          <p class=" my-4 text-secondary"><%= err %></p>
+        </div>
+        <div class="mt-3 mb-2">
+          <a href="/stories/compose"><button class=" px-3 py-2 bg-accent text-primary rounded-md hover:bg-secondary hover:text-bg" >Try Again</button></a>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
